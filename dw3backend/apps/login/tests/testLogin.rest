@@ -1,0 +1,24 @@
+### teste de login
+POST http://localhost:40000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "qwe",
+    "password": "qwe"
+}
+
+### teste de login com senha errada
+POST http://localhost:40000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "qwe",
+    "password": "errada"
+}
+
+### teste de logout
+POST http://localhost:40000/Logout HTTP/1.1
+content-type: application/json
+
+{
+}
