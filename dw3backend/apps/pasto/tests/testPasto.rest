@@ -1,0 +1,50 @@
+### Necessário para pegar o token
+# @name loginAutenticado
+POST http://localhost:40000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "qwe",
+    "password": "qwe"
+}
+
+### Seta o token
+@accessToken = {{loginAutenticado.response.body.$.token}}
+
+### teste de inserção de pasto
+POST http://localhost:40000/insertPasto HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "pastoid": 0,
+    "descricao": "Pasto Novo",
+    "areatotal": 32.80,
+    "removido": false
+}
+
+### teste de buscar todos os pastos
+GET http://localhost:40000/getAllPastos HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de buscar pasto por ID
+GET http://localhost:40000/getPastoByID/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de atualização de pasto
+PUT http://localhost:40000/updatePasto/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "descricao": "Pasto Sede Atualizado",
+    "areatotal": 26.00,
+    "removido": false
+}
+
+### teste de remoção de pasto
+DELETE http://localhost:40000/deletePasto/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}

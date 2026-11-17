@@ -3,6 +3,7 @@
 const express = require("express");
 const routerApp = express.Router();
 
+const appPasto = require("../apps/pasto/controller/ctlPasto");
 const appLogin = require("../apps/login/controller/ctlLogin");
 
 // middleware that is specific to this router
@@ -15,6 +16,11 @@ routerApp.get("/", (req, res) => {
 });
 
 //@ Rotas de Pasto
+routerApp.get("/getAllPastos", appLogin.AutenticaJWT, appPasto.GetAllPastos);
+routerApp.get("/getPastoByID/:pastoid", appLogin.AutenticaJWT, appPasto.GetPastoByID);
+routerApp.post("/insertPasto", appLogin.AutenticaJWT, appPasto.InsertPasto);
+routerApp.put("/updatePasto/:pastoid", appLogin.AutenticaJWT, appPasto.UpdatePasto);
+routerApp.delete("/deletePasto/:pastoid", appLogin.AutenticaJWT, appPasto.DeletePasto);
 
 //@ Rotas de Piquete
 
