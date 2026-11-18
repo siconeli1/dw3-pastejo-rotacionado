@@ -1,0 +1,139 @@
+/* arquivo: public/stylesheets/style.css */
+
+/* Cores do sistema: verde (pasto) e marrom (terra) */
+:root {
+  --verde: #2f6b3a;
+  --verde-escuro: #234f2b;
+  --verde-claro: #e3efe2;
+  --marrom: #7a5230;
+  --marrom-claro: #f1e7da;
+  --fundo: #f5f2ea;
+}
+
+body {
+  background: var(--fundo);
+  color: #2b2b24;
+}
+
+a {
+  text-decoration: none;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.app-main {
+  min-height: calc(100vh - 56px);
+}
+
+/* Barra de navegação */
+.app-navbar {
+  min-height: 56px;
+  background: var(--verde-escuro);
+  border-bottom: 4px solid var(--marrom);
+}
+
+.app-navbar .nav-link.active {
+  color: #fff;
+  font-weight: 600;
+  border-bottom: 2px solid #d9b98c;
+}
+
+/* Botões e textos na cor do sistema */
+.btn-primary {
+  --bs-btn-bg: var(--verde);
+  --bs-btn-border-color: var(--verde);
+  --bs-btn-hover-bg: var(--verde-escuro);
+  --bs-btn-hover-border-color: var(--verde-escuro);
+  --bs-btn-active-bg: var(--verde-escuro);
+  --bs-btn-active-border-color: var(--verde-escuro);
+  --bs-btn-disabled-bg: var(--verde);
+  --bs-btn-disabled-border-color: var(--verde);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--verde);
+  --bs-btn-border-color: var(--verde);
+  --bs-btn-hover-bg: var(--verde);
+  --bs-btn-hover-border-color: var(--verde);
+  --bs-btn-active-bg: var(--verde-escuro);
+  --bs-btn-active-border-color: var(--verde-escuro);
+}
+
+.text-primary {
+  color: var(--verde) !important;
+}
+
+.text-marrom {
+  color: var(--marrom) !important;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: var(--verde);
+  box-shadow: 0 0 0 0.2rem rgba(47, 107, 58, 0.2);
+}
+
+/* Tela de login */
+.login-screen {
+  min-height: calc(100vh - 6rem);
+  padding: 3rem 1rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 1rem;
+  border-top: 6px solid var(--verde) !important;
+}
+
+.login-icone {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--verde-claro);
+  color: var(--verde);
+  font-size: 1.6rem;
+}
+
+/* Cabeçalho e cartões das páginas */
+.page-card {
+  border-radius: 1rem;
+}
+
+.page-header {
+  margin-bottom: 1.25rem;
+}
+
+.page-kicker {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.hero-card {
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, #ffffff 0%, var(--verde-claro) 100%);
+  border-left: 6px solid var(--verde) !important;
+}
+
+/* Atalhos da página inicial */
+.atalho-card {
+  border-radius: 1rem;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.atalho-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+}
+
+.atalho-icone {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  background: var(--marrom-claro);
+  color: var(--marrom);
+  font-size: 1.4rem;
+}

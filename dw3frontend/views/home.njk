@@ -1,0 +1,63 @@
+<!-- arquivo: views/home.njk -->
+
+{% extends "layout.njk" %}
+
+{% block content %}
+  <header class="page-header">
+    <p class="page-kicker text-marrom fw-semibold mb-2">Módulo agrícola</p>
+    <h1 class="display-6 fw-bold mb-2">Painel principal</h1>
+    <p class="text-secondary mb-0">Controle do pastejo rotacionado da propriedade.</p>
+  </header>
+
+  <div class="hero-card card border-0 shadow-sm mb-4">
+    <div class="card-body p-4 p-lg-5">
+      <h2 class="h4 fw-semibold mb-2">Olá, <span id="nomeUsuario">usuário</span>!</h2>
+      <p class="text-secondary mb-0">
+        Cadastre os pastos e divida-os em piquetes. Depois, registre os animais e controle
+        em qual piquete cada um está alocado e por quanto tempo.
+      </p>
+    </div>
+  </div>
+
+  <div class="row g-3 g-lg-4">
+    <div class="col-12 col-sm-6 col-xl-3">
+      <a class="atalho-card card border-0 shadow-sm h-100 text-reset" href="/pasto">
+        <div class="card-body p-4">
+          <div class="atalho-icone d-flex align-items-center justify-content-center mb-3"><i class="bi bi-map"></i></div>
+          <h3 class="h5 fw-semibold mb-1">Pastos</h3>
+          <p class="text-secondary small mb-0">Áreas da propriedade e sua área total em hectares.</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-3">
+      <a class="atalho-card card border-0 shadow-sm h-100 text-reset" href="/piquete">
+        <div class="card-body p-4">
+          <div class="atalho-icone d-flex align-items-center justify-content-center mb-3"><i class="bi bi-grid-3x3-gap"></i></div>
+          <h3 class="h5 fw-semibold mb-1">Piquetes</h3>
+          <p class="text-secondary small mb-0">Divisões de cada pasto com sua localização.</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-3">
+      <a class="atalho-card card border-0 shadow-sm h-100 text-reset" href="/animal">
+        <div class="card-body p-4">
+          <div class="atalho-icone d-flex align-items-center justify-content-center mb-3"><i class="bi bi-tag"></i></div>
+          <h3 class="h5 fw-semibold mb-1">Animais</h3>
+          <p class="text-secondary small mb-0">Rebanho cadastrado com a data de nascimento.</p>
+        </div>
+      </a>
+    </div>
+    <div class="col-12 col-sm-6 col-xl-3">
+      <a class="atalho-card card border-0 shadow-sm h-100 text-reset" href="/alocado">
+        <div class="card-body p-4">
+          <div class="atalho-icone d-flex align-items-center justify-content-center mb-3"><i class="bi bi-arrow-left-right"></i></div>
+          <h3 class="h5 fw-semibold mb-1">Alocações</h3>
+          <p class="text-secondary small mb-0">Entrada e saída dos animais em cada piquete.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script src="/js/dw3frontend.js"></script>
+  <script src="/apps/home/vwHome.js"></script>
+{% endblock %}
