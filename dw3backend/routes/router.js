@@ -4,6 +4,7 @@ const express = require("express");
 const routerApp = express.Router();
 
 const appPasto = require("../apps/pasto/controller/ctlPasto");
+const appAnimal = require("../apps/animal/controller/ctlAnimal");
 const appLogin = require("../apps/login/controller/ctlLogin");
 
 // middleware that is specific to this router
@@ -25,6 +26,11 @@ routerApp.delete("/deletePasto/:pastoid", appLogin.AutenticaJWT, appPasto.Delete
 //@ Rotas de Piquete
 
 //@ Rotas de Animal
+routerApp.get("/getAllAnimais", appLogin.AutenticaJWT, appAnimal.GetAllAnimais);
+routerApp.get("/getAnimalByID/:animalid", appLogin.AutenticaJWT, appAnimal.GetAnimalByID);
+routerApp.post("/insertAnimal", appLogin.AutenticaJWT, appAnimal.InsertAnimal);
+routerApp.put("/updateAnimal/:animalid", appLogin.AutenticaJWT, appAnimal.UpdateAnimal);
+routerApp.delete("/deleteAnimal/:animalid", appLogin.AutenticaJWT, appAnimal.DeleteAnimal);
 
 //@ Rotas de Alocado
 
