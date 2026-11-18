@@ -12,6 +12,7 @@ var homeRouter = require('./routes/rtHome');
 var pastoRouter = require('./routes/rtPasto');
 var animalRouter = require('./routes/rtAnimal');
 var piqueteRouter = require('./routes/rtPiquete');
+var alocadoRouter = require('./routes/rtAlocado');
 
 require('dotenv').config({ path: path.join(__dirname, 'dw3frontend.env'), quiet: true });
 
@@ -39,6 +40,7 @@ app.use('/home', homeRouter);
 app.use('/pasto', pastoRouter);
 app.use('/animal', animalRouter);
 app.use('/piquete', piqueteRouter);
+app.use('/alocado', alocadoRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));
