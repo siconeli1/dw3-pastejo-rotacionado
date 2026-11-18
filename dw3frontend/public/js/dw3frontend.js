@@ -98,6 +98,36 @@ var dw3IdiomaDataTable = {
   }
 };
 
+function dw3ValidarFormulario(form) {
+  // Valida os campos obrigatórios do formulário.
+  var invalido = form.querySelector(':invalid');
+
+  if (!invalido) {
+    return true;
+  }
+
+  // O Select2 esconde o select original, então o navegador não consegue mostrar o aviso nele.
+  if (invalido.classList.contains('select2-hidden-accessible')) {
+    var label = form.querySelector('label[for="' + invalido.id + '"]');
+    alert('Selecione o campo ' + (label ? label.textContent : invalido.name) + '.');
+    $(invalido).select2('open');
+    return false;
+  }
+
+  form.reportValidity();
+  return false;
+}
+
+function dw3LinkMapa(latitude, longitude) {
+  // Monta o endereço do Google Maps para a coordenada informada.
+  if (latitude === null || latitude === undefined || latitude === '' ||
+      longitude === null || longitude === undefined || longitude === '') {
+    return '';
+  }
+
+  return 'https://www.google.com/maps?q=' + encodeURIComponent(latitude + ',' + longitude);
+}
+
 function dw3DataDeHoje() {
   // Retorna a data de hoje no formato AAAA-MM-DD, usado nos campos do tipo date.
   var hoje = new Date();
