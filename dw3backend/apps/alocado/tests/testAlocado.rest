@@ -1,0 +1,64 @@
+### Necessário para pegar o token
+# @name loginAutenticado
+POST http://localhost:40000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "qwe",
+    "password": "qwe"
+}
+
+### Seta o token
+@accessToken = {{loginAutenticado.response.body.$.token}}
+
+### teste de inserção de alocado
+POST http://localhost:40000/insertAlocado HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "alocadoid": 0,
+    "animalidifk": 3,
+    "piqueteidfk": 3,
+    "datainicio": "2026-11-01",
+    "datafinal": null,
+    "removido": false
+}
+
+### teste de buscar todas as alocações
+GET http://localhost:40000/getAllAlocados HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de buscar alocação por ID
+GET http://localhost:40000/getAlocadoByID/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de buscar animais para alocado
+GET http://localhost:40000/getAnimaisToAlocado HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de buscar piquetes para alocado
+GET http://localhost:40000/getPiquetesToAlocado HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de atualização de alocado
+PUT http://localhost:40000/updateAlocado/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "animalidifk": 1,
+    "piqueteidfk": 2,
+    "datainicio": "2026-10-01",
+    "datafinal": "2026-10-10",
+    "removido": false
+}
+
+### teste de remoção de alocado
+DELETE http://localhost:40000/deleteAlocado/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}

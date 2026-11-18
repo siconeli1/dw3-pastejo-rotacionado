@@ -6,6 +6,7 @@ const routerApp = express.Router();
 const appPasto = require("../apps/pasto/controller/ctlPasto");
 const appPiquete = require("../apps/piquete/controller/ctlPiquete");
 const appAnimal = require("../apps/animal/controller/ctlAnimal");
+const appAlocado = require("../apps/alocado/controller/ctlAlocado");
 const appLogin = require("../apps/login/controller/ctlLogin");
 
 // middleware that is specific to this router
@@ -40,6 +41,13 @@ routerApp.put("/updateAnimal/:animalid", appLogin.AutenticaJWT, appAnimal.Update
 routerApp.delete("/deleteAnimal/:animalid", appLogin.AutenticaJWT, appAnimal.DeleteAnimal);
 
 //@ Rotas de Alocado
+routerApp.get("/getAllAlocados", appLogin.AutenticaJWT, appAlocado.GetAllAlocados);
+routerApp.get("/getAlocadoByID/:alocadoid", appLogin.AutenticaJWT, appAlocado.GetAlocadoByID);
+routerApp.get("/getAnimaisToAlocado", appLogin.AutenticaJWT, appAlocado.GetAnimaisToAlocado);
+routerApp.get("/getPiquetesToAlocado", appLogin.AutenticaJWT, appAlocado.GetPiquetesToAlocado);
+routerApp.post("/insertAlocado", appLogin.AutenticaJWT, appAlocado.InsertAlocado);
+routerApp.put("/updateAlocado/:alocadoid", appLogin.AutenticaJWT, appAlocado.UpdateAlocado);
+routerApp.delete("/deleteAlocado/:alocadoid", appLogin.AutenticaJWT, appAlocado.DeleteAlocado);
 
 //@ Rota Login
 routerApp.post("/Login", appLogin.Login);
