@@ -4,6 +4,7 @@ const express = require("express");
 const routerApp = express.Router();
 
 const appPasto = require("../apps/pasto/controller/ctlPasto");
+const appPiquete = require("../apps/piquete/controller/ctlPiquete");
 const appAnimal = require("../apps/animal/controller/ctlAnimal");
 const appLogin = require("../apps/login/controller/ctlLogin");
 
@@ -24,6 +25,12 @@ routerApp.put("/updatePasto/:pastoid", appLogin.AutenticaJWT, appPasto.UpdatePas
 routerApp.delete("/deletePasto/:pastoid", appLogin.AutenticaJWT, appPasto.DeletePasto);
 
 //@ Rotas de Piquete
+routerApp.get("/getAllPiquetes", appLogin.AutenticaJWT, appPiquete.GetAllPiquetes);
+routerApp.get("/getPiqueteByID/:piqueteid", appLogin.AutenticaJWT, appPiquete.GetPiqueteByID);
+routerApp.get("/getPastosToPiquete", appLogin.AutenticaJWT, appPiquete.GetPastosToPiquete);
+routerApp.post("/insertPiquete", appLogin.AutenticaJWT, appPiquete.InsertPiquete);
+routerApp.put("/updatePiquete/:piqueteid", appLogin.AutenticaJWT, appPiquete.UpdatePiquete);
+routerApp.delete("/deletePiquete/:piqueteid", appLogin.AutenticaJWT, appPiquete.DeletePiquete);
 
 //@ Rotas de Animal
 routerApp.get("/getAllAnimais", appLogin.AutenticaJWT, appAnimal.GetAllAnimais);

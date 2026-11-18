@@ -1,0 +1,59 @@
+### Necessário para pegar o token
+# @name loginAutenticado
+POST http://localhost:40000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "qwe",
+    "password": "qwe"
+}
+
+### Seta o token
+@accessToken = {{loginAutenticado.response.body.$.token}}
+
+### teste de inserção de piquete
+POST http://localhost:40000/insertPiquete HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "piqueteid": 0,
+    "descricao": "Piquete 04",
+    "latitude": -20.4310000,
+    "longitude": -49.9835000,
+    "pastoidfk": 2,
+    "removido": false
+}
+
+### teste de buscar todos os piquetes
+GET http://localhost:40000/getAllPiquetes HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de buscar piquete por ID
+GET http://localhost:40000/getPiqueteByID/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de buscar pastos para piquete
+GET http://localhost:40000/getPastosToPiquete HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+### teste de atualização de piquete
+PUT http://localhost:40000/updatePiquete/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
+
+{
+    "descricao": "Piquete 01 Atualizado",
+    "latitude": -20.4238000,
+    "longitude": -49.9782000,
+    "pastoidfk": 1,
+    "removido": false
+}
+
+### teste de remoção de piquete
+DELETE http://localhost:40000/deletePiquete/1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{accessToken}}
