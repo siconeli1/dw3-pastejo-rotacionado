@@ -9,6 +9,7 @@ var nunjucks = require('nunjucks');
 var indexRouter = require('./routes/rtIndex');
 var loginRouter = require('./routes/rtLogin');
 var homeRouter = require('./routes/rtHome');
+var pastoRouter = require('./routes/rtPasto');
 
 require('dotenv').config({ path: path.join(__dirname, 'dw3frontend.env'), quiet: true });
 
@@ -33,6 +34,7 @@ app.use('/apps', express.static(path.join(__dirname, 'apps')));
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/home', homeRouter);
+app.use('/pasto', pastoRouter);
 
 app.use(function(req, res, next) {
   next(createError(404));

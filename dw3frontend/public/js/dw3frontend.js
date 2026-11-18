@@ -67,6 +67,37 @@ function dw3EscaparHtml(valor) {
     .replace(/>/g, '&gt;');
 }
 
+function dw3FormatarNumero(valor, casas) {
+  // Formata números no padrão brasileiro: 1234.5 -> 1.234,50
+  if (valor === null || valor === undefined || valor === '') {
+    return '';
+  }
+
+  return Number(valor).toLocaleString('pt-BR', {
+    minimumFractionDigits: casas,
+    maximumFractionDigits: casas
+  });
+}
+
+// Textos do DataTables em português, usados em todas as listas do sistema.
+var dw3IdiomaDataTable = {
+  emptyTable: 'Nenhum registro cadastrado.',
+  info: 'Mostrando _START_ até _END_ de _TOTAL_ registros',
+  infoEmpty: 'Mostrando 0 até 0 de 0 registros',
+  infoFiltered: '(filtrado de _MAX_ registros no total)',
+  lengthMenu: 'Mostrar _MENU_ registros',
+  loadingRecords: 'Carregando...',
+  processing: 'Processando...',
+  search: 'Pesquisar:',
+  zeroRecords: 'Nenhum registro encontrado',
+  paginate: {
+    first: 'Primeiro',
+    last: 'Último',
+    next: 'Próximo',
+    previous: 'Anterior'
+  }
+};
+
 function dw3FormatarData(data) {
   // Converte 2026-11-01 para 01/11/2026
   if (!data) {

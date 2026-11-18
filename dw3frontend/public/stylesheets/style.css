@@ -61,6 +61,14 @@ a {
   --bs-btn-active-border-color: var(--verde-escuro);
 }
 
+.pagination {
+  --bs-pagination-color: var(--verde);
+  --bs-pagination-hover-color: var(--verde-escuro);
+  --bs-pagination-active-bg: var(--verde);
+  --bs-pagination-active-border-color: var(--verde);
+  --bs-pagination-focus-box-shadow: 0 0 0 0.2rem rgba(47, 107, 58, 0.2);
+}
+
 .text-primary {
   color: var(--verde) !important;
 }
