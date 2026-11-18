@@ -98,6 +98,15 @@ var dw3IdiomaDataTable = {
   }
 };
 
+function dw3DataDeHoje() {
+  // Retorna a data de hoje no formato AAAA-MM-DD, usado nos campos do tipo date.
+  var hoje = new Date();
+  var mes = String(hoje.getMonth() + 1).padStart(2, '0');
+  var dia = String(hoje.getDate()).padStart(2, '0');
+
+  return hoje.getFullYear() + '-' + mes + '-' + dia;
+}
+
 function dw3FormatarData(data) {
   // Converte 2026-11-01 para 01/11/2026
   if (!data) {

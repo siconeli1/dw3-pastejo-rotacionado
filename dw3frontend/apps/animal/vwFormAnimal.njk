@@ -1,0 +1,52 @@
+<!-- arquivo: apps/animal/vwFormAnimal.njk -->
+
+{% extends "layout.njk" %}
+
+{% block content %}
+  <header class="page-header">
+    <p class="page-kicker text-marrom fw-semibold mb-2">Cadastro</p>
+    <h1 class="h3 fw-bold mb-2" id="tituloForm">Formulário de animais</h1>
+    <p class="text-secondary mb-0">Manipule os dados cadastrais dos animais.</p>
+  </header>
+
+  <div class="card page-card border-0 shadow-sm">
+    <div class="card-body p-4">
+      <h2 class="h5 fw-semibold mb-4">Dados do animal</h2>
+
+      <form id="frmAnimal" data-servidor-dw3="{{ servidorDw3 }}">
+        <input type="hidden" id="animalid" name="animalid" value="0">
+        <input type="hidden" id="removido" name="removido" value="false">
+
+        <div class="row g-3">
+          <div class="col-12 col-md-8">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" maxlength="50" placeholder="Ex.: Mimosa" required>
+          </div>
+
+          <div class="col-12 col-md-4">
+            <label for="datanasc" class="form-label">Data de nascimento</label>
+            <input type="date" class="form-control" id="datanasc" name="datanasc" required>
+          </div>
+        </div>
+
+        <div class="d-flex flex-column flex-sm-row gap-2 mt-4">
+          <button type="button" class="btn btn-primary d-none" id="btnInserirAnimal">
+            <i class="bi bi-plus-lg me-1"></i>Inserir
+          </button>
+          <button type="button" class="btn btn-warning d-none" id="btnAtualizarAnimal">
+            <i class="bi bi-pencil-square me-1"></i>Salvar alterações
+          </button>
+          <button type="button" class="btn btn-danger d-none" id="btnRemoverAnimal">
+            <i class="bi bi-trash me-1"></i>Remover
+          </button>
+          <a class="btn btn-outline-secondary" href="/animal" id="btnFecharAnimal">
+            <i class="bi bi-x-lg me-1"></i>Fechar
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/dw3frontend.js"></script>
+  <script src="/apps/animal/vwFormAnimal.js"></script>
+{% endblock %}
